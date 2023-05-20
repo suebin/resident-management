@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import javax.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 /**
  * 세대 전입 주소.

@@ -1,5 +1,7 @@
 package com.nhnacademy.residentmanagement.repository;
 
-// marker interface
+/**
+ * Marker Interface.
+ */
 public interface RepositoryBase {
 }

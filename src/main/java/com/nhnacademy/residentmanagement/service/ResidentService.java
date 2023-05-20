@@ -139,7 +139,7 @@ public class ResidentService {
         if (!residentRepository.existsById(familySerialNumber)) {
             throw new ResidentNotFoundException(familySerialNumber);
         }
-        familyRelationshipRepository.deleteFamilyRelationshipCode(serialNumber, familySerialNumber);
+        familyRelationshipRepository.deleteFamilyRelationship(serialNumber, familySerialNumber);
     }
 
     /**

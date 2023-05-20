@@ -1,0 +1,42 @@
+### 세대 등록
+
+POST /household
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "householdSerialNumber": 2,
+  "householdResidentSerialNumber": 8,
+  "householdCompositionDate": "2023-05-20",
+  "householdCompositionReasonCode": "세대 분리",
+  "currentHouseMovementAddress": "세종특별자치시 다정중앙로1번길"
+}
+
+### 세대 삭제
+DELETE /household/2
+Host: localhost:8080
+
+### 세대 전입 주소 등록
+POST /household/2/movement
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "houseMovementReportDate": "2023-05-20",
+  "houseMovementAddress": "광주광역시 동구 금남로185번길",
+  "isLastAddress": "Y"
+}
+
+### 세대 전입 주소 수정
+PUT /household/2/movement/2023-05-20
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "houseMovementAddress": "세종특별자치시 다정중앙로1번길",
+  "isLastAddress": "Y"
+}
+
+### 세대 전입 주소 삭제
+DELETE /household/2/movement/2023-05-20
+Host: localhost:8080
