@@ -2,6 +2,8 @@ package com.nhnacademy.residentmanagement.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.nhnacademy.residentmanagement.domain.FamilyRelationshipCode;
 import lombok.*;
 
 /**
@@ -28,19 +30,12 @@ public class FamilyRelationship {
     @EqualsAndHashCode
     @Embeddable
     public static class Pk implements Serializable {
-        @Column(name = "family_resident_serial_number")
-        private int familyResidentSerialNumber;
-        @Column(name = "base_resident_serial_number")
-        private int  baseResidentSerialNumber;
+        @ManyToOne
+        @JoinColumn(name = "family_resident_serial_number")
+        private Resident familyResident;
+
+        @ManyToOne
+        @JoinColumn(name = "base_resident_serial_number")
+        private Resident baseResident;
     }
-
-    @MapsId("familyResidentSerialNumber")
-    @ManyToOne
-    @JoinColumn(name = "family_resident_serial_number")
-    private Resident familyResident;
-
-    @MapsId("baseResidentSerialNumber")
-    @ManyToOne
-    @JoinColumn(name = "base_resident_serial_number")
-    private Resident baseResident;
 }

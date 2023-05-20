@@ -13,20 +13,12 @@ import javax.sql.DataSource;
 
 @Configuration
 @ComponentScan(basePackageClasses = Base.class,
-excludeFilters = @ComponentScan.Filter(Controller.class))
+        excludeFilters = @ComponentScan.Filter(Controller.class))
 public class RootConfig {
-    @Bean
-    public MessageSource messageSource() {
-        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasename("message");
-        messageSource.setDefaultEncoding("UTF-8");
-        return messageSource;
-    }
-
     @Bean
     public DataSource dataSource() {
         BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://133.186.144.236:3306/nhn_academy_49");
         dataSource.setUsername("nhn_academy_49");
         dataSource.setPassword("B_JQs4)8vOC359!X");
@@ -43,5 +35,13 @@ public class RootConfig {
         dataSource.setTestWhileIdle(true);
 
         return dataSource;
+    }
+
+    @Bean
+    public MessageSource messageSource() {
+        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+        messageSource.setBasename("message");
+        messageSource.setDefaultEncoding("UTF-8");
+        return messageSource;
     }
 }

@@ -24,6 +24,6 @@ public class CertificateIssue {
     private LocalDate certificateIssueDate;
 
     @ManyToOne
-    @JoinColumn(name = "resident_serial_number")
+    @JoinColumn(name = "resident_serial_number", insertable = false, updatable = false)
     private Resident resident;
 }

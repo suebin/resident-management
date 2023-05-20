@@ -1,0 +1,113 @@
+### 주민 등록
+POST /residents
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "residentSerialNumber": 8,
+  "name": "오수빈",
+  "residentRegistrationNumber": "981109-1234568",
+  "genderCode": "남",
+  "birthDate": "1998-11-09 16:20:00",
+  "birthPlaceCode": "병원",
+  "registrationBaseAddress": "강원도 원주시 무실로1번길"
+}
+
+### 주민 수정
+PUT /residents/8
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "name": "오수빈",
+  "residentRegistrationNumber": "981109-2234568",
+  "genderCode": "여",
+  "birthDate": "1998-11-09 16:20:00",
+  "birthPlaceCode": "병원",
+  "registrationBaseAddress": "세종특별자치시 다정중앙로"
+}
+
+### 가족관계 등록
+
+POST /residents/8/relationship
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "familySerialNumber": 6,
+    "relationship": "father"
+}
+
+### 가족관계 수정
+
+PUT /residents/8/relationship/6
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "relationship": "mother"
+}
+
+### 가족관계 삭제
+DELETE /residents/8/relationship/6
+Host: localhost:8080
+
+### 출생신고 등록
+POST /residents/6/birth
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "birthDeathTypeCode": "출생",
+  "residentSerialNumber": 8,
+  "birthDeathReportDate": "1998-11-10",
+  "birthReportQualificationsCode": "모",
+  "emailAddress": "mo@gmail.com",
+  "phoneNumber": "010-1234-5678"
+}
+
+### 출생신고 수정
+PUT /residents/6/birth/8
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "birthDeathReportDate": "1998-11-11",
+  "birthReportQualificationsCode": "모",
+  "emailAddress": "momo@gmail.com",
+  "phoneNumber": "010-8765-4321"
+}
+
+### 출생신고 삭제
+DELETE /residents/6/birth/8
+Host: localhost:8080
+
+### 사망신고 등록
+POST /residents/4/death
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "birthDeathTypeCode": "사망",
+  "residentSerialNumber": 2,
+  "birthDeathReportDate": "2023-05-19",
+  "deathReportQualificationsCode": "자녀",
+  "emailAddress": "nam@gmail.com",
+  "phoneNumber": "010-1234-5678"
+}
+
+### 사망신고 수정
+PUT /residents/4/death/2
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "birthDeathReportDate": "2023-05-20",
+  "deathReportQualificationsCode": "자녀",
+  "emailAddress": "nam@nhn.co.kr",
+  "phoneNumber": "010-8765-4321"
+}
+
+### 사망신고 삭제
+DELETE /residents/4/death/2
+Host: localhost:8080

@@ -1,6 +1,7 @@
 package com.nhnacademy.residentmanagement.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,6 +28,12 @@ public class Household {
     private String currentHouseMovementAddress;
 
     @ManyToOne
-    @JoinColumn(name = "household_resident_serial_number")
+    @JoinColumn(name = "household_resident_serial_number", insertable = false, updatable = false)
     private Resident resident;
+
+    @OneToMany(mappedBy = "household", cascade = CascadeType.REMOVE)
+    private List<HouseholdCompositionResident> householdCompositionResidents;
+
+    @OneToMany(mappedBy = "household", cascade = CascadeType.REMOVE)
+    private List<HouseholdMovementAddress> householdMovementAddresses;
 }

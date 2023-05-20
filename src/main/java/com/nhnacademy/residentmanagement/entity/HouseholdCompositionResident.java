@@ -43,7 +43,6 @@ public class HouseholdCompositionResident {
     @MapsId("householdSerialNumber")
     @ManyToOne
     @JoinColumn(name = "household_serial_number")
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private Household household;
 
     @MapsId("residentSerialNumber")
