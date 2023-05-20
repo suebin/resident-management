@@ -1,6 +1,7 @@
 package com.nhnacademy.residentmanagement.service;
 
 import com.nhnacademy.residentmanagement.domain.*;
+import com.nhnacademy.residentmanagement.dto.ResidentDto;
 import com.nhnacademy.residentmanagement.entity.BirthDeathReportResident;
 import com.nhnacademy.residentmanagement.entity.FamilyRelationship;
 import com.nhnacademy.residentmanagement.entity.Resident;
@@ -12,6 +13,8 @@ import com.nhnacademy.residentmanagement.repository.FamilyRelationshipRepository
 import com.nhnacademy.residentmanagement.repository.ResidentRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -78,6 +81,31 @@ public class ResidentService {
         ResidentSerialNumber residentSerialNumber = new ResidentSerialNumber();
         residentSerialNumber.setResidentSerialNumber(resident.getResidentSerialNumber());
         return residentSerialNumber;
+    }
+
+    /**
+     * 주민 목록 조회 서비스.
+     *
+     * @param pageable pageable
+     * @return 주민 목록
+     */
+    @Transactional
+    public Page<Resident> getResidentList(Pageable pageable) {
+        return residentRepository.findAll(pageable);
+    }
+
+    /**
+     * 주민 조회 서비스.
+     *
+     * @param residentSerialNumber
+     * @return
+     */
+    @Transactional
+    public ResidentDto getResident(int residentSerialNumber) {
+        if (!residentRepository.existsById(residentSerialNumber)) {
+            throw new ResidentNotFoundException(residentSerialNumber);
+        }
+        return residentRepository.queryByResidentSerialNumber(residentSerialNumber);
     }
 
     /**

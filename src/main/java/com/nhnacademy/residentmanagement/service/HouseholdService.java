@@ -106,7 +106,7 @@ public class HouseholdService {
     }
 
     /**
-     * 세대 전입 주소 삭제.
+     * 세대 전입 주소 삭제 서비스.
      *
      * @param householdSerialNumber   세대일련번호
      * @param houseMovementReportDate 전입신고일자

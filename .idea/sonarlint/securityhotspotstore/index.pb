@@ -5,8 +5,6 @@ i
 Nsrc/main/java/com/nhnacademy/residentmanagement/controller/ControllerBase.java,1/3/13cb9c6905110122e98eea34e4d38551527cef90
 |
 Lsrc/main/java/com/nhnacademy/residentmanagement/entity/CertificateIssue.java,c/9/c902f2cf7ef845b8aa08f0ad1af5c0b7cf6b90ff
-u
-Esrc/main/java/com/nhnacademy/residentmanagement/config/WebConfig.java,1/e/1ec23735f673f0f5368afc0c237e60152a1a4b5f
 v
 Fsrc/main/java/com/nhnacademy/residentmanagement/config/RootConfig.java,e/4/e4d0fe3fcb02eb665dbfee2c7722805d538372e1
 ˆ

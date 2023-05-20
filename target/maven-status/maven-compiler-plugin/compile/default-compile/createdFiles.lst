@@ -13,6 +13,7 @@ com/nhnacademy/residentmanagement/controller/ResidentRestController.class
 com/nhnacademy/residentmanagement/entity/QHouseholdMovementAddress_Pk.class
 com/nhnacademy/residentmanagement/entity/QHouseholdMovementAddress.class
 com/nhnacademy/residentmanagement/config/WebConfig.class
+com/nhnacademy/residentmanagement/controller/ResidentManagementController.class
 com/nhnacademy/residentmanagement/entity/QBirthDeathReportResident.class
 com/nhnacademy/residentmanagement/Base.class
 com/nhnacademy/residentmanagement/repository/HouseholdMovementAddressRepository.class
@@ -22,6 +23,7 @@ com/nhnacademy/residentmanagement/entity/CertificateIssue.class
 com/nhnacademy/residentmanagement/domain/HouseholdCreateRequest.class
 com/nhnacademy/residentmanagement/repository/ResidentRepository.class
 com/nhnacademy/residentmanagement/entity/FamilyRelationship$Pk.class
+com/nhnacademy/residentmanagement/dto/ResidentDto.class
 com/nhnacademy/residentmanagement/entity/QCertificateIssue.class
 com/nhnacademy/residentmanagement/entity/BirthDeathReportResident$Pk.class
 com/nhnacademy/residentmanagement/service/HouseholdService.class

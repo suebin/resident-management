@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="#{viewResident}"></title>
+  <link rel="stylesheet" href="/resources/css/default.css"/>
+  <link rel="stylesheet" href="/resources/css/view.css"/>
+  <script type="text/javascript">
+    window.addEventListener('DOMContentLoaded',function(){
+      'use strict';
+      const btnDelete = document.getElementById("btn-delete");
+
+      btnDelete.addEventListener('click',function (){
+        const ans = confirm("삭제하시겠습니까?");
+        if(ans){
+          const deleteForm = document.getElementById("deleteForm");
+          deleteForm.submit();
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+<h1 th:text="#{viewResident}"></h1>
+<table>
+  <caption></caption>
+  <colgroup>
+    <col style="width:150px;" />
+    <col style="width:300px;" />
+  </colgroup>
+  <tbody>
+  <tr>
+    <th th:text="#{residentSerialNumber}"></th>
+    <td th:text="${residentDto.residentSerialNumber}"></td>
+  </tr>
+  <tr>
+    <th th:text="#{name}"></th>
+    <td th:text="${residentDto.name}" ></td>
+  </tr>
+  <tr>
+    <th th:text="#{residentRegistrationNumber}"></th>
+    <td th:text="${residentDto.residentRegistrationNumber}" ></td>
+  </tr>
+  <tr>
+    <th th:text="#{gender}"></th>
+    <td th:text="${residentDto.genderCode}" ></td>
+  </tr>
+  <tr>
+    <th th:text="#{birthDate}"></th>
+    <td th:text="${residentDto.birthDate}" ></td>
+  </tr>
+  <tr>
+    <th th:text="#{birthPlace}"></th>
+    <td th:text="${residentDto.birthPlaceCode}" ></td>
+  </tr>
+  <tr>
+    <th th:text="#{registrationBaseAddress}"></th>
+    <td th:text="${residentDto.registrationBaseAddress}" ></td>
+  </tr>
+  <tr th:if="not ${residentDto.deathDate == null}">
+    <th th:text="#{deathDate}"></th>
+    <td th:text="${residentDto.deathDate}" ></td>
+  </tr>
+  <tr th:if="not ${#strings.isEmpty(residentDto.deathPlaceCode)}">
+    <th th:text="#{deathPlace}"></th>
+    <td th:text="${residentDto.deathPlaceCode}" ></td>
+  </tr>
+  <tr th:if="not ${#strings.isEmpty(residentDto.deathPlaceAddress)}">
+    <th th:text="#{deathPlaceAddress}"></th>
+    <td th:text="${residentDto.deathPlaceAddress}" ></td>
+  </tr>
+  </tbody>
+</table>
+<div class = "link">
+  <a th:href="@{./list(page=${page}, size=${size})}"><span th:text="#{residentList}"></span></a>
+  <button id="btn-delete" th:text="#{delete}"></button>
+</div>
+
+<form method="post" action="/admin/users/" id="deleteForm">
+  <input type="hidden" name="_method" value="delete" />
+  <input type="hidden" name="id" th:value="${residentDto.residentSerialNumber}" />
+</form>
+
+</body>
+</html>
