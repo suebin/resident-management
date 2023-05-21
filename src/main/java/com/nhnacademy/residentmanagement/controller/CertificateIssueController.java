@@ -1,7 +1,8 @@
 package com.nhnacademy.residentmanagement.controller;
 
-import com.nhnacademy.residentmanagement.dto.CertificateOfFamilyRelationsDto;
-import com.nhnacademy.residentmanagement.dto.ResidentRegisterDto;
+import com.nhnacademy.residentmanagement.dto.certificate.BirthCertificateDto;
+import com.nhnacademy.residentmanagement.dto.certificate.CertificateOfFamilyRelationsDto;
+import com.nhnacademy.residentmanagement.dto.certificate.ResidentRegisterDto;
 import com.nhnacademy.residentmanagement.service.CertificateIssueService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -9,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 증명서 발급 Controller.
+ * 주민관리 문서 발급 및 조회 Controller. (가족관계증명서, 주민등록등본, 출생신고서, 사망신고서)
  */
 @Controller
 @AllArgsConstructor
@@ -43,10 +44,10 @@ public class CertificateIssueController {
     @GetMapping("/certificate-of-family-relations/{serialNumber}"
             + "/{certificationConfirmationNumber}")
     public String getCertificateOfFamilyRelations(Model model,
-                                                @PathVariable("serialNumber")
-                                                int residentSerialNumber,
-                                                @PathVariable("certificationConfirmationNumber")
-                                                Long certificationConfirmationNumber) {
+                                                  @PathVariable("serialNumber")
+                                                  int residentSerialNumber,
+                                                  @PathVariable("certificationConfirmationNumber")
+                                                  Long certificationConfirmationNumber) {
         CertificateOfFamilyRelationsDto dto = certificateIssueService
                 .getCertificateOfFamilyRelations(residentSerialNumber, certificationConfirmationNumber);
         model.addAttribute("dto", dto);
@@ -78,14 +79,43 @@ public class CertificateIssueController {
      */
     @GetMapping("/resident-register/{serialNumber}/{certificationConfirmationNumber}")
     public String getResidentRegister(Model model,
-                                                  @PathVariable("serialNumber")
-                                                  int residentSerialNumber,
-                                                  @PathVariable("certificationConfirmationNumber")
-                                                  Long certificationConfirmationNumber) {
+                                      @PathVariable("serialNumber")
+                                      int residentSerialNumber,
+                                      @PathVariable("certificationConfirmationNumber")
+                                      Long certificationConfirmationNumber) {
         ResidentRegisterDto dto = certificateIssueService
                 .getResidentRegister(residentSerialNumber, certificationConfirmationNumber);
         model.addAttribute("dto", dto);
         return "certificate/resident-register";
+    }
+
+    /**
+     * 출생신고서 발급.
+     *
+     * @param residentSerialNumber 주민일련번호
+     * @return view
+     */
+    @PostMapping("/birth-certificate")
+    public String issueBirthCertificate(int residentSerialNumber) {
+        certificateIssueService.issueBirthCertificate(residentSerialNumber);
+        return "redirect:/certificate/birth-certificate/" + residentSerialNumber;
+    }
+
+    /**
+     * 출생신고서 조회.
+     *
+     * @param model                출생신고서에 필요한 데이터
+     * @param residentSerialNumber 주민일련번호
+     * @return view
+     */
+    @GetMapping("/birth-certificate/{serialNumber}")
+    public String getBirthCertificate(Model model,
+                                      @PathVariable("serialNumber")
+                                      int residentSerialNumber) {
+        BirthCertificateDto dto =
+                certificateIssueService.getBirthCertificate(residentSerialNumber);
+        model.addAttribute("dto", dto);
+        return "certificate/birth-certificate";
     }
 
 

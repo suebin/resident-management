@@ -1,11 +1,11 @@
 package com.nhnacademy.residentmanagement.service;
 
+import com.nhnacademy.residentmanagement.domain.code.BirthDeathTypeCode;
 import com.nhnacademy.residentmanagement.domain.code.CertificateTypeCode;
 import com.nhnacademy.residentmanagement.domain.code.FamilyRelationshipCode;
 import com.nhnacademy.residentmanagement.dto.*;
-import com.nhnacademy.residentmanagement.entity.CertificateIssue;
-import com.nhnacademy.residentmanagement.entity.HouseholdCompositionResident;
-import com.nhnacademy.residentmanagement.entity.Resident;
+import com.nhnacademy.residentmanagement.dto.certificate.*;
+import com.nhnacademy.residentmanagement.entity.*;
 import com.nhnacademy.residentmanagement.exception.ResidentNotFoundException;
 import com.nhnacademy.residentmanagement.repository.*;
 
@@ -30,6 +30,7 @@ public class CertificateIssueService {
     private final HouseholdRepository householdRepository;
     private final HouseholdCompositionResidentRepository householdCompositionResidentRepository;
     private final HouseholdMovementAddressRepository householdMovementAddressRepository;
+    private final BirthDeathReportResidentRepository birthDeathReportResidentRepository;
     private final Random random = new Random();
 
     /**
@@ -100,7 +101,7 @@ public class CertificateIssueService {
      */
     @Transactional
     public ResidentRegisterDto getResidentRegister(int residentSerialNumber,
-                                    Long certificationConfirmationNumber) {
+                                                   Long certificationConfirmationNumber) {
         CertificateIssueDto certificateIssueDto = certificateIssueRepository
                 .queryByCertificateConfirmationNumber(certificationConfirmationNumber);
 
@@ -124,6 +125,51 @@ public class CertificateIssueService {
                 String.valueOf(certificateIssueDto.getCertificateConfirmationNumber())
                         .substring(8),
                 householdName, householdDto, householdMovementAddressDtoList, householdOfResidentDtoList);
+    }
+
+    /**
+     * 출생신고서 발급 서비스.
+     *
+     * @param residentSerialNumber 주민일련번호
+     */
+    @Transactional
+    public void issueBirthCertificate(int residentSerialNumber) {
+        issueCertificate(residentSerialNumber, CertificateTypeCode.BIRTH_CERTIFICATE);
+    }
+
+    @Transactional
+    public BirthCertificateDto getBirthCertificate(int residentSerialNumber) {
+        Resident resident = residentRepository.findById(residentSerialNumber)
+                .orElseThrow(() -> new ResidentNotFoundException(residentSerialNumber));
+
+        String familyRelationshipCode = FamilyRelationshipCode.FATHER.getValue();
+        int fatherResidentSerialNumber = familyRelationshipRepository
+                .findFamilyResidentSerialNumber(residentSerialNumber, familyRelationshipCode);
+        familyRelationshipCode = FamilyRelationshipCode.MOTHER.getValue();
+        int motherResidentSerialNumber = familyRelationshipRepository
+                .findFamilyResidentSerialNumber(residentSerialNumber, familyRelationshipCode);
+        String birthDeathTypeCode = BirthDeathTypeCode.BIRTH.getValue();
+        BirthDeathReportResident birthDeathReportResident
+                = birthDeathReportResidentRepository.findReportResident(residentSerialNumber, birthDeathTypeCode);
+
+        String reportDate = String.valueOf(birthDeathReportResident.getBirthDeathReportDate());
+
+        Resident fatherResident = residentRepository.findById(fatherResidentSerialNumber)
+                .orElseThrow(() -> new ResidentNotFoundException(residentSerialNumber));
+        Resident motherResident = residentRepository.findById(motherResidentSerialNumber)
+                .orElseThrow(() -> new ResidentNotFoundException(residentSerialNumber));
+        Resident reportResident = residentRepository.findById(birthDeathReportResident.getPk().getReportResidentSerialNumber())
+                .orElseThrow(() -> new ResidentNotFoundException(residentSerialNumber));
+
+        return new BirthCertificateDto(resident.getName(), resident.getGenderCode(), resident.getBirthDate(),
+                resident.getBirthPlaceCode(), resident.getRegistrationBaseAddress(),
+                fatherResident.getName(), fatherResident.getResidentRegistrationNumber(),
+                motherResident.getName(), motherResident.getResidentRegistrationNumber(),
+                reportResident.getName(), reportResident.getResidentRegistrationNumber(),
+                birthDeathReportResident.getBirthReportQualificationsCode(),
+                birthDeathReportResident.getEmailAddress(),
+                birthDeathReportResident.getPhoneNumber(),
+                reportDate.substring(0,4), reportDate.substring(5, 7), reportDate.substring(8));
     }
 
     /**

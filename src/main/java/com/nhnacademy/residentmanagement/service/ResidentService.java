@@ -1,5 +1,6 @@
 package com.nhnacademy.residentmanagement.service;
 
+import com.nhnacademy.residentmanagement.domain.code.BirthDeathTypeCode;
 import com.nhnacademy.residentmanagement.domain.request.*;
 import com.nhnacademy.residentmanagement.dto.ResidentDto;
 import com.nhnacademy.residentmanagement.entity.BirthDeathReportResident;
@@ -17,6 +18,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 주민 관련 데이터 추가 입력을 위한 서비스. (주민, 가족관계, 출생 및 사망 신고)
@@ -246,5 +250,25 @@ public class ResidentService {
             throw new BirthDeathReportResidentNotFoundException();
         }
         birthDeathReportResidentRepository.deleteById(pk);
+    }
+
+    /**
+     * 출생신고 여부 확인 서비스.
+     *
+     * @return 출생신고 여부
+     */
+    public List<Integer> checkBirthReport() {
+        List<Integer> birthReportResidentList = new ArrayList<>();
+        String birthDeathTypeCode = BirthDeathTypeCode.BIRTH.getValue();
+        for (Resident resident : residentRepository.findAll()) {
+            int residentSerialNumber = resident.getResidentSerialNumber();
+            BirthDeathReportResident reportResident =
+                    birthDeathReportResidentRepository
+                            .findBySerialNumberAndTypeCode(residentSerialNumber, birthDeathTypeCode);
+            if (reportResident != null) {
+                birthReportResidentList.add(residentSerialNumber);
+            }
+        }
+        return birthReportResidentList;
     }
 }

@@ -24,6 +24,8 @@
         <th th:text="#{detailView}"></th>
         <th th:text="#{certificateOfFamilyRelations}"></th>
         <th th:text="#{residentRegister}"></th>
+        <th th:text="#{birthCertificate}"></th>
+        <th th:text="#{deathCertificate}"></th>
     </tr>
     </thead>
     <tbody>
@@ -43,15 +45,33 @@
                 <input type="hidden" name="residentSerialNumber" th:value="${item.residentSerialNumber}"/>
             </form>
         </td>
-        <td>
+        <td th:if="${item.deathDate == null}">
             <button class="btn-issue-resident-register" th:text="#{issue}"></button>
             <form method="post" action="/certificate/resident-register" class="issue-resident-register-form">
                 <input type="hidden" name="residentSerialNumber" th:value="${item.residentSerialNumber}"/>
             </form>
         </td>
+        <td th:if="${item.deathDate} != null" th:text="'.'"></td>
+        <div th:each=" residentSerialNumber, i : ${birthReportResidentList}">
+            <td th:if="${residentSerialNumber != item.residentSerialNumber}" th:text="'.'"></td>
+            <td th:if="${residentSerialNumber == item.residentSerialNumber}">
+                <button class="btn-issue-birth-certificate" th:text="#{issue}"></button>
+                <form method="post" action="/certificate/birth-certificate" class="issue-birth-certificate-form">
+                    <input type="hidden" name="residentSerialNumber" th:value="${item.residentSerialNumber}"/>
+                </form>
+            </td>
+        </div>
+        <td th:if="${item.deathDate != null}">
+            <button class="btn-issue-death-certificate" th:text="#{issue}"></button>
+            <form method="post" action="/certificate/death-certificate" class="issue-death-certificate-form">
+                <input type="hidden" name="residentSerialNumber" th:value="${item.residentSerialNumber}"/>
+            </form>
+        </td>
+        <td th:if="${item.deathDate} == null" th:text="'.'"></td>
     </tr>
     </tbody>
 </table>
+
 <div class="page">
     <a th:href="@{./(page=${residentPage.getNumber - 1} , size=${residentPage.getSize}  )}"
        th:if="${residentPage.getNumber gt 0 }" th:text="#{prev}"></a>

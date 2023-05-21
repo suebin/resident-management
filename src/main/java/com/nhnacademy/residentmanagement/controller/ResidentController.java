@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 /**
  * 주민 관리 Controller.
  */
@@ -33,7 +35,10 @@ public class ResidentController {
     @GetMapping(value = {"/list", "/", ""})
     public String residents(Model model, @PageableDefault(size = 5, sort = "residentSerialNumber", direction = Sort.Direction.ASC) Pageable pageable) {
         Page<Resident> residentPage = residentService.getResidentList(pageable);
+        List<Integer> birthReportResidentList = residentService.checkBirthReport();
+
         model.addAttribute("residentPage", residentPage);
+        model.addAttribute("birthReportResidentList", birthReportResidentList);
         return "resident/list";
     }
 

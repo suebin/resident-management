@@ -17,8 +17,6 @@ Xsrc/main/java/com/nhnacademy/residentmanagement/exception/ResidentNotFoundExcep
 Xsrc/main/java/com/nhnacademy/residentmanagement/exception/ValidationFailedException.java,b/9/b9183c2186693c38e0ddb2f2781ce78ba4fceab5
 ˜
 hsrc/main/java/com/nhnacademy/residentmanagement/exception/BirthDeathReportResidentNotFoundException.java,1/1/114266b23a662fba9c4fc8bae38c6fea0d47151b
-„
-Tsrc/main/java/com/nhnacademy/residentmanagement/entity/BirthDeathReportResident.java,6/d/6d8ad99a1d1ce0dd8083815f0472758ad32349b2
 “
 csrc/main/java/com/nhnacademy/residentmanagement/domain/request/FamilyRelationshipCreateRequest.java,d/a/dad63dabcd2ce2327e7b48718c43e126f5b6b2d3
 ‰
@@ -33,8 +31,6 @@ csrc/main/java/com/nhnacademy/residentmanagement/domain/request/HouseholdMovemen
 hsrc/main/java/com/nhnacademy/residentmanagement/exception/HouseholdMovementAddressNotFoundException.java,c/2/c253e94b7383c587679b38102f1222413208bd0a
 “
 csrc/main/java/com/nhnacademy/residentmanagement/domain/request/BirthDeathReportResidentRequest.java,e/8/e883cbbbeb34bf2314d905949e1aeef3ff423902
-|
-Lsrc/main/java/com/nhnacademy/residentmanagement/service/ResidentService.java,1/8/18967b91e019b73c09c1c56ff76c97db1c664668
 K
 src/main/http/resident.http,9/2/92b917bd327705b8c51376da2923df811aee2eba
 ˆ
@@ -47,8 +43,6 @@ Y
 Msrc/main/java/com/nhnacademy/residentmanagement/service/HouseholdService.java,0/d/0d1115ffc6edb798e7247e2aeed279fa090a0a19
 V
 &src/main/webapp/resources/css/view.css,1/a/1ab203b4b9fef2029da44c0d572b14e4328f60c8
-_
-/src/main/webapp/WEB-INF/view/resident/view.html,1/8/18c598a624a328587b33e2b37a27efc5c0b4b172
 7
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
 u
@@ -60,18 +54,8 @@ Esrc/main/java/com/nhnacademy/residentmanagement/config/WebConfig.java,1/e/1ec2
 ]
 -src/main/webapp/resources/css/certificate.css,d/3/d3253e268f4178013aad71aaf44d31b51ed6516a
 ‡
-Wsrc/main/java/com/nhnacademy/residentmanagement/domain/code/FamilyRelationshipCode.java,c/1/c139f87d661341c8f5a513cb6aa1314613525865
-„
-Tsrc/main/java/com/nhnacademy/residentmanagement/domain/code/CertificateTypeCode.java,8/9/891e7955b3621932b0b39025841110546d8e4b10
-‡
 Wsrc/main/java/com/nhnacademy/residentmanagement/controller/HouseholdRestController.java,6/8/6827504aa0c191a4c7f4daaaf78a716b7d87e386
 †
 Vsrc/main/java/com/nhnacademy/residentmanagement/controller/ResidentRestController.java,1/0/1011f1aec1eae0ee4060d007e32432b21a594050
-‚
-Rsrc/main/java/com/nhnacademy/residentmanagement/controller/ResidentController.java,a/2/a275b4e46e1a7633b0a1e027d3c0cdc2ad37f8c9
-t
-Dsrc/main/java/com/nhnacademy/residentmanagement/dto/ResidentDto.java,4/c/4c61f3b7265413bfd70ce4ac441efc3534382d58
-~
-Nsrc/main/java/com/nhnacademy/residentmanagement/entity/FamilyRelationship.java,a/2/a2e069396b2f79705a82744a39c03281407093c3
 |
 Lsrc/main/java/com/nhnacademy/residentmanagement/entity/CertificateIssue.java,c/9/c902f2cf7ef845b8aa08f0ad1af5c0b7cf6b90ff

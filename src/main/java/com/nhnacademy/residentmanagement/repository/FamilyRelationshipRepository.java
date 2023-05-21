@@ -28,4 +28,7 @@ public interface FamilyRelationshipRepository
     void deleteFamilyRelationship(@Param("serialNumber") int serialNumber,
                                   @Param("familySerialNumber") int familySerialNumber);
 
+    @Query("SELECT i.pk.familyResident.residentSerialNumber FROM FamilyRelationship i WHERE i.pk.baseResident.residentSerialNumber = ?1 AND i.familyRelationshipCode = ?2")
+    int findFamilyResidentSerialNumber(@Param("residentSerialNumber") int residentSerialNumber, @Param("familyRelationshipCode") String familyRelationshipCode);
+
 }

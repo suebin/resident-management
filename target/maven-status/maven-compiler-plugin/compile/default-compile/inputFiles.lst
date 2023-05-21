@@ -3,13 +3,13 @@
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/domain/request/HouseholdMovementAddressRequest.java
 /Users/suebin/Desktop/resident-management/target/generated-sources/annotations/java/com/nhnacademy/residentmanagement/entity/QBirthDeathReportResident.java
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/config/WebConfig.java
+/Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/dto/certificate/BirthCertificateDto.java
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/dto/HouseholdDto.java
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/entity/HouseholdCompositionResident.java
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/repository/CertificateIssueRepository.java
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/controller/ControllerBase.java
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/exception/HouseholdMovementAddressNotFoundException.java
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/service/HouseholdService.java
-/Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/dto/ResidentRegisterDto.java
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/entity/CertificateIssue.java
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/domain/request/FamilyRelationshipCreateRequest.java
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/repository/BirthDeathReportResidentRepository.java
@@ -24,8 +24,8 @@
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/domain/code/FamilyRelationshipCode.java
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/exception/BirthDeathReportResidentNotFoundException.java
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/dto/HouseholdOfResidentDto.java
+/Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/domain/code/BirthDeathTypeCode.java
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/repository/FamilyRelationshipRepositoryCustomImpl.java
-/Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/dto/CertificateOfFamilyRelationsDto.java
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/dto/FamilyOfResidentDto.java
 /Users/suebin/Desktop/resident-management/target/generated-sources/annotations/java/com/nhnacademy/residentmanagement/entity/QFamilyRelationship_Pk.java
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/repository/HouseholdCompositionResidentRepository.java
@@ -44,6 +44,7 @@
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/repository/HouseholdRepository.java
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/entity/HouseholdMovementAddress.java
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/config/RootConfig.java
+/Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/dto/certificate/CertificateOfFamilyRelationsDto.java
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/entity/BirthDeathReportResident.java
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/controller/ResidentController.java
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/exception/ResidentAlreadyExistException.java
@@ -55,6 +56,7 @@
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/Base.java
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/controller/ResidentRestController.java
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/domain/request/BirthDeathReportResidentRequest.java
+/Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/dto/certificate/ResidentRegisterDto.java
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/entity/Resident.java
 /Users/suebin/Desktop/resident-management/src/main/java/com/nhnacademy/residentmanagement/repository/HouseholdCompositionResidentRepositoryCustomImpl.java
 /Users/suebin/Desktop/resident-management/target/generated-sources/annotations/java/com/nhnacademy/residentmanagement/entity/QHouseholdCompositionResident.java
