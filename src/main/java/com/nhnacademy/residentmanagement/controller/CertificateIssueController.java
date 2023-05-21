@@ -1,6 +1,7 @@
 package com.nhnacademy.residentmanagement.controller;
 
 import com.nhnacademy.residentmanagement.dto.CertificateOfFamilyRelationsDto;
+import com.nhnacademy.residentmanagement.dto.ResidentRegisterDto;
 import com.nhnacademy.residentmanagement.service.CertificateIssueService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -23,10 +24,10 @@ public class CertificateIssueController {
      * @return view
      */
     @PostMapping("/certificate-of-family-relations")
-    public String registerCertificateIssue(int residentSerialNumber) {
+    public String issueCertificateOfFamilyRelations(int residentSerialNumber) {
         Long certificateConfirmationNumber =
                 certificateIssueService
-                        .registerCertificateOfFamilyRelationsIssue(residentSerialNumber);
+                        .issueRegisterCertificateOfFamilyRelations(residentSerialNumber);
         return "redirect:/certificate/certificate-of-family-relations/"
                 + residentSerialNumber + "/" + certificateConfirmationNumber;
     }
@@ -39,15 +40,52 @@ public class CertificateIssueController {
      * @param certificationConfirmationNumber 증명서확인번호
      * @return view
      */
-    @GetMapping("/certificate-of-family-relations/{serialNumber}/{certificationConfirmationNumber}")
+    @GetMapping("/certificate-of-family-relations/{serialNumber}"
+            + "/{certificationConfirmationNumber}")
     public String getCertificateOfFamilyRelations(Model model,
-                                                @PathVariable("serialNumber") int residentSerialNumber,
+                                                @PathVariable("serialNumber")
+                                                int residentSerialNumber,
                                                 @PathVariable("certificationConfirmationNumber")
                                                 Long certificationConfirmationNumber) {
         CertificateOfFamilyRelationsDto dto = certificateIssueService
                 .getCertificateOfFamilyRelations(residentSerialNumber, certificationConfirmationNumber);
         model.addAttribute("dto", dto);
         return "certificate/certificate-of-family-relations";
+    }
+
+    /**
+     * 주민등록등본 발급.
+     *
+     * @param residentSerialNumber 주민일련번호
+     * @return view
+     */
+    @PostMapping("/resident-register")
+    public String issueResidentRegister(int residentSerialNumber) {
+        Long certificateConfirmationNumber =
+                certificateIssueService
+                        .issueResidentRegister(residentSerialNumber);
+        return "redirect:/certificate/resident-register/"
+                + residentSerialNumber + "/" + certificateConfirmationNumber;
+    }
+
+    /**
+     * 주민등록등본 조회.
+     *
+     * @param model                           주민등록등본에 필요한 데이터
+     * @param residentSerialNumber            주민일련번호
+     * @param certificationConfirmationNumber 증명서확인번호
+     * @return view
+     */
+    @GetMapping("/resident-register/{serialNumber}/{certificationConfirmationNumber}")
+    public String getResidentRegister(Model model,
+                                                  @PathVariable("serialNumber")
+                                                  int residentSerialNumber,
+                                                  @PathVariable("certificationConfirmationNumber")
+                                                  Long certificationConfirmationNumber) {
+        ResidentRegisterDto dto = certificateIssueService
+                .getResidentRegister(residentSerialNumber, certificationConfirmationNumber);
+        model.addAttribute("dto", dto);
+        return "certificate/resident-register";
     }
 
 

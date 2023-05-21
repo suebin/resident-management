@@ -1,6 +1,5 @@
 package com.nhnacademy.residentmanagement.repository;
 
-import com.nhnacademy.residentmanagement.dto.FamilyOfResidentDto;
 import com.nhnacademy.residentmanagement.entity.FamilyRelationship;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

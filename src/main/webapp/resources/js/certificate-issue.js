@@ -1,15 +1,32 @@
 window.addEventListener('DOMContentLoaded', function () {
     'use strict';
-    const btnFamilyRelationsCertificateIssues
-        = document.querySelectorAll(".btn-certificate-of-family-relations-issue");
 
-    btnFamilyRelationsCertificateIssues.forEach(function (btn) {
+    // 가족관계증명서 발급 버튼
+    const btnIssueCertificateOfFamilyRelations
+        = document.querySelectorAll(".btn-issue-certificate-of-family-relations");
+
+    btnIssueCertificateOfFamilyRelations.forEach(function (btn) {
         btn.addEventListener('click', function () {
             const ans = confirm("가족관계증명서를 발급하시겠습니까?");
             if (ans) {
-                const familyRelationsCertificateIssueForm
+                const IssueCertificateOfFamilyRelationsForm
                     = btn.nextElementSibling;
-                familyRelationsCertificateIssueForm.submit();
+                IssueCertificateOfFamilyRelationsForm.submit();
+            }
+        });
+    });
+
+    // 주민등록등본 발급 버튼
+    const btnIssueResidentRegister
+        = document.querySelectorAll(".btn-issue-resident-register");
+
+    btnIssueResidentRegister.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            const ans = confirm("주민등록등본을 발급하시겠습니까?");
+            if (ans) {
+                const IssueResidentRegisterForm
+                    = btn.nextElementSibling;
+                IssueResidentRegisterForm.submit();
             }
         });
     });

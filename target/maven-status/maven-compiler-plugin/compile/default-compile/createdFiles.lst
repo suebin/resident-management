@@ -1,5 +1,6 @@
 com/nhnacademy/residentmanagement/exception/ResidentAlreadyExistException.class
 com/nhnacademy/residentmanagement/entity/Resident.class
+com/nhnacademy/residentmanagement/repository/HouseholdCompositionResidentRepositoryCustom.class
 com/nhnacademy/residentmanagement/entity/Household.class
 com/nhnacademy/residentmanagement/config/JpaConfig.class
 com/nhnacademy/residentmanagement/controller/ControllerBase.class
@@ -20,6 +21,7 @@ com/nhnacademy/residentmanagement/repository/HouseholdMovementAddressRepository.
 com/nhnacademy/residentmanagement/exception/ValidationFailedException.class
 com/nhnacademy/residentmanagement/exception/HouseholdMovementAddressNotFoundException.class
 com/nhnacademy/residentmanagement/entity/CertificateIssue.class
+com/nhnacademy/residentmanagement/dto/HouseholdOfResidentDto.class
 com/nhnacademy/residentmanagement/domain/request/ResidentRequest.class
 com/nhnacademy/residentmanagement/domain/code/CertificateTypeCode.class
 com/nhnacademy/residentmanagement/repository/ResidentRepository.class
@@ -28,8 +30,10 @@ com/nhnacademy/residentmanagement/dto/ResidentDto.class
 com/nhnacademy/residentmanagement/dto/CertificateIssueDto.class
 com/nhnacademy/residentmanagement/domain/request/FamilyRelationshipCreateRequest.class
 com/nhnacademy/residentmanagement/entity/QCertificateIssue.class
+com/nhnacademy/residentmanagement/repository/HouseholdCompositionResidentRepositoryCustomImpl.class
 com/nhnacademy/residentmanagement/entity/BirthDeathReportResident$Pk.class
 com/nhnacademy/residentmanagement/domain/code/FamilyRelationshipCode.class
+com/nhnacademy/residentmanagement/repository/HouseholdCompositionResidentRepository.class
 com/nhnacademy/residentmanagement/service/HouseholdService.class
 com/nhnacademy/residentmanagement/service/ResidentService.class
 com/nhnacademy/residentmanagement/entity/QBirthDeathReportResident_Pk.class
@@ -49,7 +53,10 @@ com/nhnacademy/residentmanagement/domain/request/HouseholdMovementAddressRequest
 com/nhnacademy/residentmanagement/controller/CertificateIssueController.class
 com/nhnacademy/residentmanagement/entity/HouseholdMovementAddress$Pk.class
 com/nhnacademy/residentmanagement/repository/HouseholdRepository.class
+com/nhnacademy/residentmanagement/dto/ResidentRegisterDto.class
+com/nhnacademy/residentmanagement/dto/HouseholdDto.class
 com/nhnacademy/residentmanagement/entity/QHouseholdCompositionResident_Pk.class
+com/nhnacademy/residentmanagement/dto/HouseholdMovementAddressDto.class
 com/nhnacademy/residentmanagement/service/CertificateIssueService.class
 com/nhnacademy/residentmanagement/exception/HouseholdNotFoundException.class
 com/nhnacademy/residentmanagement/entity/HouseholdMovementAddress.class

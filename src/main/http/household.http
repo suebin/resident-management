@@ -8,7 +8,7 @@ Content-Type: application/json
   "householdSerialNumber": 2,
   "householdResidentSerialNumber": 8,
   "householdCompositionDate": "2023-05-20",
-  "householdCompositionReasonCode": "세대 분리",
+  "householdCompositionReasonCode": "세대분리",
   "currentHouseMovementAddress": "세종특별자치시 다정중앙로1번길"
 }
 

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 
 /**
- * 세대 관련 데이터 추가 입력을 위한 RestController. (세대, 세대 구성 주민, 세대 전입 주소)
+ * 세대 관련 데이터 추가 입력을 위한 RestController. (세대, 세대 전입 주소)
  */
 @Slf4j
 @RestController

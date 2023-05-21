@@ -38,14 +38,14 @@
                     th:text="#{view}"></span></a>
         </td>
         <td>
-            <button class="btn-certificate-of-family-relations-issue" th:text="#{issue}"></button>
-            <form method="post" action="/certificate/certificate-of-family-relations" class="certificate-of-family-relations_issue_form">
+            <button class="btn-issue-certificate-of-family-relations" th:text="#{issue}"></button>
+            <form method="post" action="/certificate/certificate-of-family-relations" class="issue-certificate-of-family-relations-form">
                 <input type="hidden" name="residentSerialNumber" th:value="${item.residentSerialNumber}"/>
             </form>
         </td>
         <td>
-            <button class="btn-resident-register" th:text="#{issue}"></button>
-            <form method="post" action="/certificate/resident-register" class="resident-register_issue_form">
+            <button class="btn-issue-resident-register" th:text="#{issue}"></button>
+            <form method="post" action="/certificate/resident-register" class="issue-resident-register-form">
                 <input type="hidden" name="residentSerialNumber" th:value="${item.residentSerialNumber}"/>
             </form>
         </td>

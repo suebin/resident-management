@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- * 주민 조회 Controller.
+ * 주민 관리 Controller.
  */
 @Controller
 @AllArgsConstructor

@@ -1,6 +1,7 @@
 package com.nhnacademy.residentmanagement.dto;
 
 import java.time.LocalDateTime;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -11,13 +12,9 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class FamilyOfResidentDto {
-    String familyRelationshipCode;
-
-    String name;
-
-    LocalDateTime birthDate;
-
-    String residentRegistrationNumber;
-
-    String genderCode;
+    private String familyRelationshipCode;
+    private String name;
+    private LocalDateTime birthDate;
+    private String residentRegistrationNumber;
+    private String genderCode;
 }
