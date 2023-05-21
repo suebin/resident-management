@@ -21,6 +21,7 @@ table tr>th {
 .table_title {
     background-color: #dce3fc;
     font-size: 20px;
+    color: black;
 }
 
 .table_sub_title {

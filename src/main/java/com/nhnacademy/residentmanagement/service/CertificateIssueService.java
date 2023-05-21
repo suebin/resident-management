@@ -95,7 +95,7 @@ public class CertificateIssueService {
     /**
      * 주민등록등본 조회 서비스
      *
-     * @param residentSerialNumber 주민일련번호
+     * @param residentSerialNumber            주민일련번호
      * @param certificationConfirmationNumber 증명서확인번호
      * @return 주민등록등본에 필요한 데이터를 담은 ResidentRegisterDto
      */
@@ -137,6 +137,12 @@ public class CertificateIssueService {
         issueCertificate(residentSerialNumber, CertificateTypeCode.BIRTH_CERTIFICATE);
     }
 
+    /**
+     * 출생신고서 조회 서비스.
+     *
+     * @param residentSerialNumber 주민일련번호
+     * @return 출생신고서에 필요한 데이터를 담은 BirthCertificateDto
+     */
     @Transactional
     public BirthCertificateDto getBirthCertificate(int residentSerialNumber) {
         Resident resident = residentRepository.findById(residentSerialNumber)
@@ -169,11 +175,50 @@ public class CertificateIssueService {
                 birthDeathReportResident.getBirthReportQualificationsCode(),
                 birthDeathReportResident.getEmailAddress(),
                 birthDeathReportResident.getPhoneNumber(),
-                reportDate.substring(0,4), reportDate.substring(5, 7), reportDate.substring(8));
+                reportDate.substring(0, 4), reportDate.substring(5, 7), reportDate.substring(8));
     }
 
     /**
-     * 증명서 발급 서비스. (가족관계증명서, 주민등록등본)
+     * 사망신고서 발급 서비스.
+     *
+     * @param residentSerialNumber 주민일련번호
+     */
+    @Transactional
+    public void issueDeathCertificate(int residentSerialNumber) {
+        issueCertificate(residentSerialNumber, CertificateTypeCode.DEATH_CERTIFICATE);
+    }
+
+    /**
+     * 사망신고서 조회 서비스.
+     *
+     * @param residentSerialNumber 주민일련번호
+     * @return 사망신고서에 필요한 데이터를 담은 DeathCertificateDto
+     */
+    @Transactional
+    public DeathCertificateDto getDeathCertificate(int residentSerialNumber) {
+        Resident resident = residentRepository.findById(residentSerialNumber)
+                .orElseThrow(() -> new ResidentNotFoundException(residentSerialNumber));
+
+        String birthDeathTypeCode = BirthDeathTypeCode.DEATH.getValue();
+        BirthDeathReportResident birthDeathReportResident
+                = birthDeathReportResidentRepository.findReportResident(residentSerialNumber, birthDeathTypeCode);
+
+        String reportDate = String.valueOf(birthDeathReportResident.getBirthDeathReportDate());
+
+        Resident reportResident = residentRepository.findById(birthDeathReportResident.getPk().getReportResidentSerialNumber())
+                .orElseThrow(() -> new ResidentNotFoundException(residentSerialNumber));
+
+        return new DeathCertificateDto(resident.getName(), resident.getResidentRegistrationNumber(),
+                resident.getDeathDate(), resident.getDeathPlaceCode(), resident.getDeathPlaceAddress(),
+                reportResident.getName(), reportResident.getResidentRegistrationNumber(),
+                birthDeathReportResident.getBirthReportQualificationsCode(),
+                birthDeathReportResident.getEmailAddress(),
+                birthDeathReportResident.getPhoneNumber(),
+                reportDate.substring(0, 4), reportDate.substring(5, 7), reportDate.substring(8));
+    }
+
+    /**
+     * 주민관리 문서 발급 서비스.
      *
      * @param residentSerialNumber 주민일련번호
      * @return 증명서확인번호

@@ -33,6 +33,7 @@ com/nhnacademy/residentmanagement/entity/QCertificateIssue.class
 com/nhnacademy/residentmanagement/repository/HouseholdCompositionResidentRepositoryCustomImpl.class
 com/nhnacademy/residentmanagement/entity/BirthDeathReportResident$Pk.class
 com/nhnacademy/residentmanagement/domain/code/FamilyRelationshipCode.class
+com/nhnacademy/residentmanagement/dto/certificate/DeathCertificateDto.class
 com/nhnacademy/residentmanagement/repository/HouseholdCompositionResidentRepository.class
 com/nhnacademy/residentmanagement/service/HouseholdService.class
 com/nhnacademy/residentmanagement/service/ResidentService.class

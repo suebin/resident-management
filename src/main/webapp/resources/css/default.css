@@ -11,5 +11,16 @@ h1 {
 }
 
 .table_title {
-    background-color: #f3f5fd;
+    background-color: #07174f;
+    color: white;
+}
+
+button {
+    border-radius: 15px;
+    height: 30px;
+    width: 60px;
+    border: none;
+    background-color: #07174f;
+    color: white;
+    font-weight: bold;
 }

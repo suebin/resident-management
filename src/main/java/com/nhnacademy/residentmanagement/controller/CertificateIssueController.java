@@ -2,6 +2,7 @@ package com.nhnacademy.residentmanagement.controller;
 
 import com.nhnacademy.residentmanagement.dto.certificate.BirthCertificateDto;
 import com.nhnacademy.residentmanagement.dto.certificate.CertificateOfFamilyRelationsDto;
+import com.nhnacademy.residentmanagement.dto.certificate.DeathCertificateDto;
 import com.nhnacademy.residentmanagement.dto.certificate.ResidentRegisterDto;
 import com.nhnacademy.residentmanagement.service.CertificateIssueService;
 import lombok.AllArgsConstructor;
@@ -116,6 +117,35 @@ public class CertificateIssueController {
                 certificateIssueService.getBirthCertificate(residentSerialNumber);
         model.addAttribute("dto", dto);
         return "certificate/birth-certificate";
+    }
+
+    /**
+     * 사망신고서 발급.
+     *
+     * @param residentSerialNumber 주민일련번호
+     * @return view
+     */
+    @PostMapping("/death-certificate")
+    public String issueDeathCertificate(int residentSerialNumber) {
+        certificateIssueService.issueDeathCertificate(residentSerialNumber);
+        return "redirect:/certificate/death-certificate/" + residentSerialNumber;
+    }
+
+    /**
+     * 사망신고서 조회.
+     *
+     * @param model                사망신고서에 필요한 데이터
+     * @param residentSerialNumber 주민일련번호
+     * @return view
+     */
+    @GetMapping("/death-certificate/{serialNumber}")
+    public String getDeathCertificate(Model model,
+                                      @PathVariable("serialNumber")
+                                      int residentSerialNumber) {
+        DeathCertificateDto dto =
+                certificateIssueService.getDeathCertificate(residentSerialNumber);
+        model.addAttribute("dto", dto);
+        return "certificate/death-certificate";
     }
 
 

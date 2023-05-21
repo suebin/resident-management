@@ -45,4 +45,19 @@ window.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+    // 사망신고서 발급 버튼
+    const btnIssueDeathCertificate
+        = document.querySelectorAll(".btn-issue-death-certificate");
+
+    btnIssueDeathCertificate.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            const ans = confirm("사망신고서를 발급하시겠습니까?");
+            if (ans) {
+                const IssueResidentRegisterForm
+                    = btn.nextElementSibling;
+                IssueResidentRegisterForm.submit();
+            }
+        });
+    });
 });
