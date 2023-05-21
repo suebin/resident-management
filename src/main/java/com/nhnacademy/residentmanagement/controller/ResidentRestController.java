@@ -1,6 +1,6 @@
 package com.nhnacademy.residentmanagement.controller;
 
-import com.nhnacademy.residentmanagement.domain.*;
+import com.nhnacademy.residentmanagement.domain.request.*;
 import com.nhnacademy.residentmanagement.exception.ValidationFailedException;
 import com.nhnacademy.residentmanagement.service.ResidentService;
 import lombok.AllArgsConstructor;

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>resident list</title>
-  <link rel="stylesheet" href="/resources/css/default.css"/>
-  <link rel="stylesheet" href="/resources/css/list.css"/>
+    <meta charset="UTF-8">
+    <title th:text="#{residentList}"></title>
+    <link rel="stylesheet" href="/resources/css/default.css"/>
+    <link rel="stylesheet" href="/resources/css/list.css"/>
+    <script src="/resources/js/certificate-issue.js"></script>
 </head>
 <body>
 <button type="button" onclick="location.href=location.pathname + '?locale=ko'" th:text="#{korean}"></button>
@@ -12,34 +13,52 @@
 <h1 th:text="#{residentList}"></h1>
 
 <table>
-  <caption></caption>
-  <thead>
-  <tr>
-    <th th:text="#{residentSerialNumber}"></th>
-    <th th:text="#{name}"></th>
-    <th th:text="#{residentRegistrationNumber}"></th>
-    <th th:text="#{gender}"></th>
-    <th th:text="#{birthDate}"></th>
-    <th th:text="#{view}"></th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr th:each=" item, i : ${residentPage.getContent}" >
-    <td th:text="${item.residentSerialNumber}"></td>
-    <td th:text="${item.name}"></td>
-    <td th:text="${item.residentRegistrationNumber}"></td>
-    <td th:text="${item.genderCode}"></td>
-    <td th:text="${item.birthDate}"></td>
-    <td>
-      <a th:href="@{./view(page=${residentPage.getNumber}, size=${residentPage.getSize}, residentSerialNumber=${item.residentSerialNumber})}"><span th:text="#{view}"></span></a>
-    </td>
-  </tr>
-  </tbody>
+    <caption></caption>
+    <thead>
+    <tr class="table_title">
+        <th th:text="#{residentSerialNumber}"></th>
+        <th th:text="#{name}"></th>
+        <th th:text="#{residentRegistrationNumber}"></th>
+        <th th:text="#{gender}"></th>
+        <th th:text="#{birthDate}"></th>
+        <th th:text="#{detailView}"></th>
+        <th th:text="#{certificateOfFamilyRelations}"></th>
+        <th th:text="#{residentRegister}"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each=" item, i : ${residentPage.getContent}">
+        <td th:text="${item.residentSerialNumber}"></td>
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.residentRegistrationNumber}"></td>
+        <td th:text="${item.genderCode}"></td>
+        <td th:text="${item.birthDate}"></td>
+        <td>
+            <a th:href="@{./view(page=${residentPage.getNumber}, size=${residentPage.getSize}, residentSerialNumber=${item.residentSerialNumber})}"><span
+                    th:text="#{view}"></span></a>
+        </td>
+        <td>
+            <button class="btn-certificate-of-family-relations-issue" th:text="#{issue}"></button>
+            <form method="post" action="/certificate/certificate-of-family-relations" class="certificate-of-family-relations_issue_form">
+                <input type="hidden" name="residentSerialNumber" th:value="${item.residentSerialNumber}"/>
+            </form>
+        </td>
+        <td>
+            <button class="btn-resident-register" th:text="#{issue}"></button>
+            <form method="post" action="/certificate/resident-register" class="resident-register_issue_form">
+                <input type="hidden" name="residentSerialNumber" th:value="${item.residentSerialNumber}"/>
+            </form>
+        </td>
+    </tr>
+    </tbody>
 </table>
 <div class="page">
-  <a th:href="@{./(page=${residentPage.getNumber-1} , size=${residentPage.getSize}  )}" th:if="${residentPage.getNumber gt 0 }" th:text="#{prev}"></a>
-  <span th:text="${residentPage.getNumber+1}" />/<span th:text="${residentPage.getTotalPages}"/>
-  <a th:href="@{./(page=${residentPage.getNumber+1} , size=${residentPage.getSize}  )}" th:if="${residentPage.getNumber lt residentPage.getTotalPages - 1}" th:text="#{next}"></a>
+    <a th:href="@{./(page=${residentPage.getNumber - 1} , size=${residentPage.getSize}  )}"
+       th:if="${residentPage.getNumber gt 0 }" th:text="#{prev}"></a>
+    <span th:text="${residentPage.getNumber+1}"/>/<span th:text="${residentPage.getTotalPages}"/>
+    <a th:href="@{./(page=${residentPage.getNumber+1} , size=${residentPage.getSize}  )}"
+       th:if="${residentPage.getNumber lt residentPage.getTotalPages - 1}" th:text="#{next}"></a>
 </div>
+
 </body>
 </html>

@@ -3,7 +3,7 @@ package com.nhnacademy.residentmanagement.dto;
 import java.time.LocalDateTime;
 
 /**
- * 주민 정보 DTO.
+ * 주민 DTO.
  */
 public interface ResidentDto {
     int getResidentSerialNumber();

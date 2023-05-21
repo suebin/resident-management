@@ -1,7 +1,7 @@
 package com.nhnacademy.residentmanagement.service;
 
-import com.nhnacademy.residentmanagement.domain.HouseholdCreateRequest;
-import com.nhnacademy.residentmanagement.domain.HouseholdMovementAddressRequest;
+import com.nhnacademy.residentmanagement.domain.request.HouseholdCreateRequest;
+import com.nhnacademy.residentmanagement.domain.request.HouseholdMovementAddressRequest;
 import com.nhnacademy.residentmanagement.entity.Household;
 import com.nhnacademy.residentmanagement.entity.HouseholdMovementAddress;
 import com.nhnacademy.residentmanagement.entity.Resident;

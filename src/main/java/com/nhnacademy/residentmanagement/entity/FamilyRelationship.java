@@ -3,7 +3,6 @@ package com.nhnacademy.residentmanagement.entity;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import com.nhnacademy.residentmanagement.domain.FamilyRelationshipCode;
 import lombok.*;
 
 /**

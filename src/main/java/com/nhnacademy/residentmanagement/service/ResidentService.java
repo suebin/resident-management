@@ -1,6 +1,6 @@
 package com.nhnacademy.residentmanagement.service;
 
-import com.nhnacademy.residentmanagement.domain.*;
+import com.nhnacademy.residentmanagement.domain.request.*;
 import com.nhnacademy.residentmanagement.dto.ResidentDto;
 import com.nhnacademy.residentmanagement.entity.BirthDeathReportResident;
 import com.nhnacademy.residentmanagement.entity.FamilyRelationship;

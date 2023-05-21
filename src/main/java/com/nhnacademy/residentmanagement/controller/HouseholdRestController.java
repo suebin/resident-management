@@ -1,8 +1,7 @@
 package com.nhnacademy.residentmanagement.controller;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.nhnacademy.residentmanagement.domain.HouseholdCreateRequest;
-import com.nhnacademy.residentmanagement.domain.HouseholdMovementAddressRequest;
+import com.nhnacademy.residentmanagement.domain.request.HouseholdCreateRequest;
+import com.nhnacademy.residentmanagement.domain.request.HouseholdMovementAddressRequest;
 import com.nhnacademy.residentmanagement.exception.ValidationFailedException;
 import com.nhnacademy.residentmanagement.service.HouseholdService;
 import lombok.AllArgsConstructor;
