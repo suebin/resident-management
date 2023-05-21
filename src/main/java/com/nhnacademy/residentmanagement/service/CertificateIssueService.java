@@ -14,6 +14,8 @@ import java.util.*;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -218,7 +220,18 @@ public class CertificateIssueService {
     }
 
     /**
-     * 주민관리 문서 발급 서비스.
+     * 증명서 발급 목록 조회 서비스.
+     *
+     * @param residentSerialNumber 주민일련번호
+     * @return 증명서 발급 목록
+     */
+    @Transactional
+    public Page<CertificateIssue> getCertificateIssue(int residentSerialNumber, Pageable pageable) {
+        return certificateIssueRepository.getCertificateIssue(residentSerialNumber, pageable);
+    }
+
+    /**
+     * 증명서 발급 서비스.
      *
      * @param residentSerialNumber 주민일련번호
      * @return 증명서확인번호

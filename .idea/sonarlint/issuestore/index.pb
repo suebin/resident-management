@@ -35,8 +35,6 @@ K
 src/main/http/resident.http,9/2/92b917bd327705b8c51376da2923df811aee2eba
 ˆ
 Xsrc/main/java/com/nhnacademy/residentmanagement/domain/request/ResidentSerialNumber.java,6/0/6088f6fb7d89d6cfcc90d9334e16f26b20de9b53
-V
-&src/main/webapp/resources/css/list.css,a/9/a923102b22ba2f40077917601bfad01ff33a8fc3
 }
 Msrc/main/java/com/nhnacademy/residentmanagement/service/HouseholdService.java,0/d/0d1115ffc6edb798e7247e2aeed279fa090a0a19
 7
@@ -51,5 +49,3 @@ Esrc/main/java/com/nhnacademy/residentmanagement/config/WebConfig.java,1/e/1ec2
 Wsrc/main/java/com/nhnacademy/residentmanagement/controller/HouseholdRestController.java,6/8/6827504aa0c191a4c7f4daaaf78a716b7d87e386
 †
 Vsrc/main/java/com/nhnacademy/residentmanagement/controller/ResidentRestController.java,1/0/1011f1aec1eae0ee4060d007e32432b21a594050
-|
-Lsrc/main/java/com/nhnacademy/residentmanagement/entity/CertificateIssue.java,c/9/c902f2cf7ef845b8aa08f0ad1af5c0b7cf6b90ff

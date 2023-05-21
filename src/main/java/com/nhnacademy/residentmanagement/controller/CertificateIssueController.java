@@ -4,11 +4,18 @@ import com.nhnacademy.residentmanagement.dto.certificate.BirthCertificateDto;
 import com.nhnacademy.residentmanagement.dto.certificate.CertificateOfFamilyRelationsDto;
 import com.nhnacademy.residentmanagement.dto.certificate.DeathCertificateDto;
 import com.nhnacademy.residentmanagement.dto.certificate.ResidentRegisterDto;
+import com.nhnacademy.residentmanagement.entity.CertificateIssue;
 import com.nhnacademy.residentmanagement.service.CertificateIssueService;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 주민관리 문서 발급 및 조회 Controller. (가족관계증명서, 주민등록등본, 출생신고서, 사망신고서)
@@ -148,5 +155,22 @@ public class CertificateIssueController {
         return "certificate/death-certificate";
     }
 
+    /**
+     * 증명서 발급 목록 조회.
+     *
+     * @param model                증명서 발급 목록
+     * @param residentSerialNumber 주민일련번호
+     * @return view
+     */
+    @GetMapping("/issue-list/{serialNumber}")
+    public String getCertificateIssueList(Model model,
+                                          @PathVariable("serialNumber") int residentSerialNumber,
+                                          @PageableDefault(size = 5, sort = "certificateIssueDate", direction = Sort.Direction.DESC) Pageable pageable) {
+        Page<CertificateIssue> list
+                = certificateIssueService.getCertificateIssue(residentSerialNumber, pageable);
+        model.addAttribute("list", list);
+        model.addAttribute("residentSerialNumber", residentSerialNumber);
+        return "certificate/issue-list";
+    }
 
 }

@@ -20,12 +20,12 @@
         <th th:text="#{name}"></th>
         <th th:text="#{residentRegistrationNumber}"></th>
         <th th:text="#{gender}"></th>
-        <th th:text="#{birthDate}"></th>
         <th th:text="#{detailView}"></th>
         <th th:text="#{certificateOfFamilyRelations}"></th>
         <th th:text="#{residentRegister}"></th>
         <th th:text="#{birthCertificate}"></th>
         <th th:text="#{deathCertificate}"></th>
+        <th th:text="#{certificateIssuanceList}"></th>
     </tr>
     </thead>
     <tbody>
@@ -34,7 +34,6 @@
         <td th:text="${item.name}"></td>
         <td th:text="${item.residentRegistrationNumber}"></td>
         <td th:text="${item.genderCode}"></td>
-        <td th:text="${item.birthDate}"></td>
         <td>
             <a th:href="@{./view(page=${residentPage.getNumber}, size=${residentPage.getSize}, residentSerialNumber=${item.residentSerialNumber})}"><button
                     th:text="#{view}"></button></a>
@@ -68,6 +67,11 @@
             </form>
         </td>
         <td th:if="${item.deathDate} == null" th:text="'.'"></td>
+        <td>
+            <a th:href="@{'/certificate/issue-list/' + ${item.residentSerialNumber}}">
+            <button class="btn-issue-list" th:text="#{view}"></button>
+            </a>
+        </td>
     </tr>
     </tbody>
 </table>
