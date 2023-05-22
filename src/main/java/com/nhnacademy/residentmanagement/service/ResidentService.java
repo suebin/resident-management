@@ -1,6 +1,7 @@
 package com.nhnacademy.residentmanagement.service;
 
 import com.nhnacademy.residentmanagement.domain.code.BirthDeathTypeCode;
+import com.nhnacademy.residentmanagement.domain.code.FamilyRelationshipCode;
 import com.nhnacademy.residentmanagement.domain.request.*;
 import com.nhnacademy.residentmanagement.dto.ResidentDto;
 import com.nhnacademy.residentmanagement.entity.BirthDeathReportResident;
@@ -112,6 +113,19 @@ public class ResidentService {
     }
 
     /**
+     * 주민 삭제 서비스.
+     *
+     * @param residentSerialNumber 주민일련번호
+     */
+    @Transactional
+    public void deleteResident(int residentSerialNumber) {
+        if (!residentRepository.existsById(residentSerialNumber)) {
+            throw new ResidentNotFoundException(residentSerialNumber);
+        }
+        residentRepository.deleteById(residentSerialNumber);
+    }
+
+    /**
      * 가족관계 등록 서비스.
      *
      * @param serialNumber 기준주민일련번호
@@ -130,7 +144,7 @@ public class ResidentService {
                 .orElseThrow(() -> new ResidentNotFoundException(request.getFamilySerialNumber())));
         familyRelationship.setPk(pk);
 
-        familyRelationship.setFamilyRelationshipCode(request.getRelationship());
+        familyRelationship.setFamilyRelationshipCode(FamilyRelationshipCode.getValue(request.getRelationship()));
         familyRelationshipRepository.saveAndFlush(familyRelationship);
     }
 
@@ -151,7 +165,7 @@ public class ResidentService {
         if (!residentRepository.existsById(familySerialNumber)) {
             throw new ResidentNotFoundException(familySerialNumber);
         }
-        String familyRelationshipCode = request.getRelationship();
+        String familyRelationshipCode = FamilyRelationshipCode.getValue(request.getRelationship());
         familyRelationshipRepository.updateFamilyRelationshipCode(familyRelationshipCode,
                 serialNumber, familySerialNumber);
     }

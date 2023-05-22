@@ -10,9 +10,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,7 +31,7 @@ public class ResidentController {
      * @return view
      */
     @GetMapping(value = {"/list", "/", ""})
-    public String residents(Model model, @PageableDefault(size = 5, sort = "residentSerialNumber", direction = Sort.Direction.ASC) Pageable pageable) {
+    public String getResidents(Model model, @PageableDefault(size = 5, sort = "residentSerialNumber", direction = Sort.Direction.ASC) Pageable pageable) {
         Page<Resident> residentPage = residentService.getResidentList(pageable);
         List<Integer> birthReportResidentList = residentService.checkBirthReport();
 
@@ -52,7 +50,7 @@ public class ResidentController {
      * @return view
      */
     @GetMapping("/view")
-    public String users(Model model,
+    public String getResidents(Model model,
                         @RequestParam(name = "page", defaultValue = "1") int page,
                         @RequestParam(name = "size", defaultValue = "10") int size,
                         int residentSerialNumber) {
@@ -61,5 +59,17 @@ public class ResidentController {
         model.addAttribute("page", page);
         model.addAttribute("size", size);
         return "resident/view";
+    }
+
+    /**
+     * 주민 삭제.
+     *
+     * @param residentSerialNumber
+     * @return
+     */
+    @PostMapping("/delete")
+    public String deleteResident(int residentSerialNumber) {
+        residentService.deleteResident(residentSerialNumber);
+        return "redirect:/resident/list";
     }
 }

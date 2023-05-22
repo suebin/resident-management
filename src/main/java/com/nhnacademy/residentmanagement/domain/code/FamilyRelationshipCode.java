@@ -20,4 +20,14 @@ public enum FamilyRelationshipCode {
         this.code = code;
         this.value = value;
     }
+
+    public static String getValue(String code) {
+        for (FamilyRelationshipCode familyRelationshipCode : FamilyRelationshipCode.values()) {
+            if (familyRelationshipCode.getCode().equals(code)) {
+                return familyRelationshipCode.getValue();
+            }
+        }
+        return null;
+    }
+
 }
