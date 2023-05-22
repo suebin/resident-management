@@ -1,0 +1,12 @@
+### 멤버 등록 (회원가입)
+POST /members
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "id": "admin",
+  "name": "Administrator",
+  "password": "admin",
+  "authority": "ROLE_ADMIN"
+}
+
