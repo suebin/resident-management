@@ -162,7 +162,7 @@ public class CertificateIssueController {
      * @param residentSerialNumber 주민일련번호
      * @return view
      */
-    @GetMapping("/issue-list/{serialNumber}")
+    @GetMapping("/issue-list/{serialNumber}/")
     public String getCertificateIssueList(Model model,
                                           @PathVariable("serialNumber") int residentSerialNumber,
                                           @PageableDefault(size = 5, sort = "certificateIssueDate", direction = Sort.Direction.DESC) Pageable pageable) {

@@ -41,7 +41,9 @@ public class WebConfig implements WebMvcConfigurer, MessageSourceAware, Applicat
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addRedirectViewController("/", "/resident/list");
+        registry.addViewController("/").setViewName("index");
+        registry.addViewController("/auth/login").setViewName("security/login");
+        registry.addViewController("/auth/logout").setViewName("security/logout");
     }
 
     @Override
