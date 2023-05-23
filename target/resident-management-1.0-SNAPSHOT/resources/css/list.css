@@ -1,0 +1,16 @@
+table {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border:1px #ccc solid;
+}
+
+table tr>td,th{
+    padding:5px;
+    height: 40px;
+    border:1px #ccc solid;
+}
+
+.page {
+    margin-top: 30px;
+}

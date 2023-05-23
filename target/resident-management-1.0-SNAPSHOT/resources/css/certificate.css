@@ -1,0 +1,29 @@
+table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border:1px #ccc solid;
+}
+
+table tr>td,th{
+    padding:5px;
+    border: 1px dimgrey solid;
+}
+
+table tr>td {
+    height: 80px;
+}
+
+table tr>th {
+    height: 160px;
+}
+
+.table_title {
+    background-color: #dce3fc;
+    font-size: 20px;
+    color: black;
+}
+
+.table_sub_title {
+    background-color: #f3f5fd;
+}

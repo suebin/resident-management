@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="#{viewResident}"></title>
+  <link rel="stylesheet" href="/resources/css/default.css"/>
+  <link rel="stylesheet" href="/resources/css/view.css"/>
+</head>
+<body>
+<th:block th:include="fragments/heading" />
+<h1 th:text="#{viewResident}"></h1>
+<table>
+  <caption></caption>
+  <colgroup>
+    <col style="width:150px;" />
+    <col style="width:300px;" />
+  </colgroup>
+  <tbody>
+  <tr>
+    <th class="table_title" th:text="#{residentSerialNumber}"></th>
+    <td th:text="${residentDto.residentSerialNumber}"></td>
+  </tr>
+  <tr>
+    <th class="table_title" th:text="#{name}"></th>
+    <td th:text="${residentDto.name}" ></td>
+  </tr>
+  <tr>
+    <th class="table_title" th:text="#{residentRegistrationNumber}"></th>
+    <td th:text="${residentDto.residentRegistrationNumber}" ></td>
+  </tr>
+  <tr>
+    <th class="table_title" th:text="#{gender}"></th>
+    <td th:text="${residentDto.genderCode}" ></td>
+  </tr>
+  <tr>
+    <th class="table_title" th:text="#{birthDate}"></th>
+    <td th:text="${residentDto.birthDate}" ></td>
+  </tr>
+  <tr>
+    <th class="table_title" th:text="#{birthPlace}"></th>
+    <td th:text="${residentDto.birthPlaceCode}" ></td>
+  </tr>
+  <tr>
+    <th class="table_title" th:text="#{registrationBaseAddress}"></th>
+    <td th:text="${residentDto.registrationBaseAddress}" ></td>
+  </tr>
+  <tr th:if="not ${residentDto.deathDate == null}">
+    <th class="table_title" th:text="#{deathDate}"></th>
+    <td th:text="${residentDto.deathDate}" ></td>
+  </tr>
+  <tr th:if="not ${#strings.isEmpty(residentDto.deathPlaceCode)}">
+    <th class="table_title" th:text="#{deathPlace}"></th>
+    <td th:text="${residentDto.deathPlaceCode}" ></td>
+  </tr>
+  <tr th:if="not ${#strings.isEmpty(residentDto.deathPlaceAddress)}">
+    <th class="table_title" th:text="#{deathPlaceAddress}"></th>
+    <td th:text="${residentDto.deathPlaceAddress}" ></td>
+  </tr>
+  </tbody>
+</table>
+<div class = "link">
+  <a th:href="@{./list(page=${page}, size=${size})}"><button class="btn_resident_list" th:text="#{residentList}"></button></a>
+</div>
+</body>
+</html>
