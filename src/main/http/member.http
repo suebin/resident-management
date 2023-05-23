@@ -1,4 +1,4 @@
-### 멤버 등록 (회원가입)
+### 멤버 등록 (회원가입) (http test를 위해서는 SecurityConfig의 securityFilterChain에서 csrf disable() 해야 동작)
 POST /members
 Host: localhost:8080
 Content-Type: application/json

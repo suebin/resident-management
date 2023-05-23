@@ -1,10 +1,8 @@
 package com.nhnacademy.residentmanagement.entity;
 
 import java.time.LocalDateTime;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
+import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -51,4 +49,25 @@ public class Resident {
         this.birthPlaceCode = birthPlaceCode;
         this.registrationBaseAddress = registrationBaseAddress;
     }
+
+    @OneToMany(mappedBy = "resident", cascade = CascadeType.ALL)
+    private List<BirthDeathReportResident> birthDeathReportResidentList;
+
+    @OneToMany(mappedBy = "reportResident", cascade = CascadeType.ALL)
+    private List<BirthDeathReportResident> birthDeathReportResidentList2;
+
+    @OneToMany(mappedBy = "resident", cascade = CascadeType.ALL)
+    private List<CertificateIssue> certificateIssueList;
+
+    @OneToMany(mappedBy = "pk.familyResident", cascade = CascadeType.ALL)
+    private List<FamilyRelationship> familyRelationshipList;
+
+    @OneToMany(mappedBy = "pk.baseResident", cascade = CascadeType.ALL)
+    private List<FamilyRelationship> familyRelationshipList2;
+
+    @OneToMany(mappedBy = "resident", cascade = CascadeType.ALL)
+    private List<Household> householdList;
+
+    @OneToMany(mappedBy = "resident", cascade = CascadeType.ALL)
+    private List<HouseholdCompositionResident> householdCompositionResidentList;
 }

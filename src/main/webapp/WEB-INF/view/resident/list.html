@@ -26,6 +26,7 @@
         <th th:text="#{birthCertificate}"></th>
         <th th:text="#{deathCertificate}"></th>
         <th th:text="#{certificateIssuanceList}"></th>
+        <th th:text="#{delete}"></th>
     </tr>
     </thead>
     <tbody>
@@ -75,6 +76,13 @@
             <a th:href="@{'/certificate/issue-list/' + ${item.residentSerialNumber} + '/'} ">
             <button class="btn-issue-list" th:text="#{view}"></button>
             </a>
+        </td>
+        <td>
+            <button class="btn-delete" th:text="#{delete}"></button>
+            <form method="post" action="/resident/delete" class="resident-delete-form">
+                <input type="hidden" name="residentSerialNumber" th:value="${item.residentSerialNumber}"/>
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+            </form>
         </td>
     </tr>
     </tbody>

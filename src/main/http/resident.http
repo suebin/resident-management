@@ -1,4 +1,4 @@
-### 주민 등록
+### 주민 등록 (http test를 위해서는 SecurityConfig의 securityFilterChain에서 csrf disable() 해야 동작)
 POST /residents
 Host: localhost:8080
 Content-Type: application/json

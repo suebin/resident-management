@@ -1,4 +1,4 @@
-### 세대 등록
+### 세대 등록 (http test를 위해서는 SecurityConfig의 securityFilterChain에서 csrf disable() 해야 동작)
 
 POST /household
 Host: localhost:8080

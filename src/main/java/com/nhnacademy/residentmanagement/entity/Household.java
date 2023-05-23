@@ -33,9 +33,9 @@ public class Household {
     @JoinColumn(name = "household_resident_serial_number", insertable = false, updatable = false)
     private Resident resident;
 
-    @OneToMany(mappedBy = "household", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "household", cascade = CascadeType.ALL)
     private List<HouseholdCompositionResident> householdCompositionResidents;
 
-    @OneToMany(mappedBy = "household", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "household", cascade = CascadeType.ALL)
     private List<HouseholdMovementAddress> householdMovementAddresses;
 }
