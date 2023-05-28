@@ -3,7 +3,7 @@
 
 <br>
 
-# 🔗 링크
+# 🔗 URL
 `test 로그인 ID : admin, Password : admin (Github AOuth 2.0는 localhost 에서만 동작)`
 <br>
 
@@ -14,7 +14,7 @@
 
 <br>
 
-# 🛠 기술스택
+# 🛠 기술 스택
 - `Front-End` : HTML (Thymeleaf), CSS, Javascript
 - `Back-End` : Java, Spring Data JPA, Querydsl, Spring Security
 - `Database` : MySQL
