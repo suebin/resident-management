@@ -36,7 +36,7 @@
 
 # 🗄 ERD 
 - 초기 ERD
-![ERD](https://github.com/suebin/resident-management/assets/97905221/24001a84-7592-4cf8-8e06-0eb6a62f141c)
+<img width="1268" src="https://github.com/suebin/resident-management/assets/97905221/24001a84-7592-4cf8-8e06-0eb6a62f141c">
 
 - 최종 ERD 
 <img width="1268" alt="스크린샷 2023-05-28 오후 8 55 50" src="https://github.com/suebin/resident-management/assets/97905221/19cd97a8-6601-48b8-9742-cb5e244a3a23">
