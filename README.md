@@ -4,7 +4,7 @@
 <br>
 
 # 🔗 링크
-`test 로그인 ID : admin / Password : admin`
+`test 로그인 ID : admin, Password : admin (Github AOuth 2.0는 localhost 에서만 동작)`
 <br>
 
 - Azure IaaS 환경 배포 
