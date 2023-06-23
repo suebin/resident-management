@@ -4,17 +4,6 @@
 
 <br>
 
-# 🔗 URL
-`test 로그인 ID : admin, Password : admin (Github AOuth 2.0는 localhost 에서만 동작)`
-<br>
-
-- Azure IaaS 환경 배포 
-  - http://20.214.167.213/
-- Azure PaaS (Web App) 환경 배포 
-  - http://app-resident-management-230524123005.azurewebsites.net/
-
-<br>
-
 # 🛠 기술 스택
 - `Front-End` : HTML (Thymeleaf), CSS, Javascript
 - `Back-End` : Java, Spring Data JPA, Querydsl, Spring Security
