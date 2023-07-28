@@ -34,7 +34,7 @@
 <br>
 
 # 🛎 주요 서비스
-- `ID, PWD 로그인` / `Github AOuth 2.0 로그인` (Github AOuth 2.0는 localhost 에서만 동작) 
+- `ID, PWD 로그인` / `Github OAuth 2.0 로그인` (Github OAuth 2.0는 localhost 에서만 동작) 
 - `주민 목록` (Pagenation을 이용한 페이징 기능 구현)
 - `증명서 발급 및 조회`
   - 가족관계증명서
