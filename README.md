@@ -6,7 +6,7 @@
 
 # 🛠 기술 스택
 - `Front-End` : HTML (Thymeleaf), CSS, Javascript
-- `Back-End` : Java, Spring Data JPA, Querydsl, Spring Security
+- `Back-End` : Java, Spring Boot, Spring Data JPA, Querydsl, Spring Security
 - `Database` : MySQL
 - `Cloud Services` : Microsoft Azure
 - `Build` : Maven
